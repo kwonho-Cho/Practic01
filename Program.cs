@@ -10,41 +10,52 @@ namespace Practic01
     {
         static void Main(string[] args)
         {
-            /* 1.강아지 => (귀엽다 출력)
-             * 2.엄마 => (도망가자! 출력)
-             * 3.모르는 아저씨 => (무시한다 출력)
-             * 4.종료
-             * 
-             * 10번 반복 질문 후 자동종료
-             * while문 이용
-             *
+            /*구구단 (2~9)
+             * 1.전체
+             * 2.짝수
+             * 3.홀수 
+             * 몇번?
+             * 3개 출력 후 다음줄
              */
-            int num = 0;
-            while(num++ < 10)
-            {
-                Console.Write("1. 강아지\n2. 엄마\n3. 모르는 아저씨\n4. 종료\n 번호를 입력해주세요 : ");
-                int inputNum = int.Parse(Console.ReadLine());
 
-                switch (inputNum)
+            Console.Write("구구단 몇 단을 출력하시겠습니까? : ");
+            int num1 = int.Parse(Console.ReadLine());
+            Console.Write("1.전체\n2.짝수\n3.홀수\n번호를 선택해주세요 : ");
+            int num2 = int.Parse(Console.ReadLine());
+
+            if (num2 == 1)
+            {
+                for(int i = 1; i<=9; i++)
                 {
-                    case 1:
-                        Console.WriteLine("\n귀엽다!\n");
-                        break;
-                    case 2:
-                        Console.WriteLine("\n도망가자!\n");
-                        break;
-                    case 3:
-                        Console.WriteLine("\n(무시하자)\n");
-                        break;
-                    case 4:
-                        num += 10;
-                        break;
-                    default:
-                        Console.WriteLine("\n내용을 잘못 입력하셨습니다\n");
-                        break;
+                    Console.Write($"{num1} * {i} = {num1*i}  ");
+                    if (i % 3 == 0)
+                    {
+                        Console.WriteLine();
+                    }
                 }
             }
-            Console.WriteLine("\n시스템을 종료합니다\n");
+            else if (num2 == 2)
+            {
+                for(int i = 2; i<=9; i+=2)
+                {
+                    Console.Write($"{num1} * {i} = {num1 * i}  ");
+                    if (i % 3 == 0)
+                    {
+                        Console.WriteLine();
+                    }
+                }
+            }
+            else if(num2 == 3)
+            {
+                for (int i = 1; i <= 9; i+=2)
+                {
+                    Console.Write($"{num1} * {i} = {num1 * i}  ");
+                    if (i % 5 == 0)
+                    {
+                        Console.WriteLine();
+                    }
+                }
+            }
         }
     }
 }
