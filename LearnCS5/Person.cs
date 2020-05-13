@@ -9,10 +9,32 @@ namespace LearnCS5
 
         string _txtGender;
 
+        //생성자 초깃값
         public Person()
         {
-            Console.WriteLine("생성자가 호출 되었습니다!!");
+            //Console.WriteLine("생성자가 호출 되었습니다!!");
+            _Name = "홍길동";
+            _IsSex = true;
+            SettingGenderText(_IsSex);
         }
+
+        //생성자 초기화
+        public Person(string name, bool gender)
+        {
+            _Name = name;
+            _IsSex = gender;
+            SettingGenderText(_IsSex);
+        }
+        //stack메모리는 보통 cpu프로세스당 1mb, 스레드당 1mb.
+        //가비지컬렉터는 사용되지않는 스택메모리를 제거하며 참조하고있는 힙메모리도 같이 제거한다
+        //가비지컬렉터는 3개의 세대를 가지고, 0세대 -> 1세대 -> 2세대 메모리순으로 적재가 완료될시 정보를 제거 및 이동시킨다.
+
+        //소멸자는 소멸을 하면서 어떤 정보를 넘겨줘야할 때 이용한다
+        ~Person()
+        {
+            Console.WriteLine("소멸자가 호출 되었습니다.");
+        }
+
         //설정 함수(초기화 이후 개별 변수의 설정을 변화시킬때)
         private void SettingGenderText(bool gender)
         {
@@ -72,7 +94,7 @@ namespace LearnCS5
 
         public void ShowInfo()
         {
-            Console.WriteLine("내 이름은 {0}입니다.");
+            Console.WriteLine("내 이름은 {0}입니다.",_Name);
             Console.WriteLine("{0}입니다", _txtGender);
             
         }

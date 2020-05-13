@@ -29,8 +29,8 @@ namespace LearnCS5
             //클래스에는 기본생성자가 내재되어있다. 다만, 프로그래머가 생성자를 설정할 경우가 우선되며 그에따라 내재되는 기본생성자는 무시된다
             Person man = null;
             Console.WriteLine("누가 먼저인가?");
-            man = new Person();
-
+            man = new Person("홍길동", true);
+            man.ShowInfo();
 
         }
     }
